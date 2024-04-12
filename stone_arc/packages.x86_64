@@ -137,9 +137,9 @@ zsh
 #######################################################
 
 xterm
-alci-dwm
-alci-calamares
-alci-calamares-config-pure
+stone_arc-dwm
+stone_arc_calamares
+stone_arc_calamares_config
 
 #######################################################
 ###      PACKAGES THAT STAY AFTER INSTALLATION      ###
