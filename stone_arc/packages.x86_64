@@ -141,4 +141,11 @@ alci-dwm
 alci-calamares
 alci-calamares-config-pure
 
+#######################################################
+###      PACKAGES THAT STAY AFTER INSTALLATION      ###
+#######################################################
 
+os-prober
+#virtualbox-guest-utils
+mkinitcpio-openswap
+git
