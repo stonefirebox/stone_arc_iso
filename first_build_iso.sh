@@ -10,10 +10,10 @@ echo "- Setting General parameters"
 tput sgr0
 
 	# setting of the general parameters
-	stone_arc_iso_RequiredVersion="stone_arc 76-1"
+	stone_arc_iso_RequiredVersion="archiso 76-1"
 	buildFolder=$HOME"/Desktop/stone_arc_build"
 	outFolder=$HOME"/Desktop/stone_arc_out"
-	stone_arcVersion=$(sudo pacman -Q stone_arc)
+	stone_arcVersion=$(sudo pacman -Q archiso)
 
 tput setaf 4
 echo "################################################################## "
@@ -92,12 +92,12 @@ echo
 
 	echo
 	echo "Saving current stone_arc version to stone_arc.md"
-	sudo sed -i "s/\(^stone_arc-version=\).*/\1$stone_arcVersion/" ../stone_arc.md
+	sudo sed -i "s/\(^stone_arc-version=\).*/\1$stone_arcVersion/" ../README.md
 	echo
-	echo "Making mkstone_arc verbose"
-	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkstone_arc
+	echo "Making mkarchiso verbose"
+	sudo sed -i 's/quiet="y"/quiet="n"/g' /usr/bin/mkarchiso
 
-echo
+echo 
 echo "################################################################## "
 tput setaf 2
 echo "Phase 3 :"
@@ -112,8 +112,11 @@ echo
 	echo
 	echo "Copying the stone_arc folder to build work"
 	echo
-	mkdir $buildFolder
-	cp -r ../stone_arc $buildFolder/stone_arc
+	sudo mkdir $buildFolder
+	echo "folder created"
+	pwd
+	sudo cp -r stone_arc $buildFolder/
+	echo "file copied" 
 
 echo
 echo "################################################################## "
@@ -138,7 +141,7 @@ echo
 
 	[ -d $outFolder ] || mkdir $outFolder
 	cd $buildFolder/stone_arc/
-	sudo mkstone_arc -v -w $buildFolder -o $outFolder $buildFolder/stone_arc/
+	sudo mkarchiso -v -w $buildFolder -o $outFolder $buildFolder/stone_arc/
 
 
  	echo "Moving pkglist.x86_64.txt"
